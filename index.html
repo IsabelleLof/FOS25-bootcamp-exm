@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kaffeteria Chas Globen</title>
 </head>
 <body>
@@ -27,28 +20,21 @@
   </header>
 
   <main>
-   
     <section id="menu">
       <h2>Vår Kaffemeny</h2>
-      <ul>
-        <li>Espresso – 30 kr    <button data-product="Espresso" data-price="30">Lägg till</button></li>
-        <li>Latte – 35 kr       <button data-product="Espresso" data-price="35">Lägg till</button></li>
-        <li>Cappuccino – 40 kr. <button data-product="Espresso" data-price="40">Lägg till</button></li>
-        <li>Chai Latte – 38 kr  <button data-product="Espresso" data-price="38">Lägg till</button></li>
+      <ul id="productList"></ul>
+    </section>
+
+    <section id="cart">
+      <h2>Din varukorg</h2>
+      <ul id="cartItems">
+        <!-- Produkter läggs till här med JavaScript -->
       </ul>
+      <p id="totalPrice">Totalt: 0 kr</p>
+      <button id="checkout">Beställ</button>
     </section>
 
-     <section id="cart">
-  <h2>Din varukorg</h2>
-  <ul id="cartItems">
-    <!-- Produkter läggs till här med JavaScript -->
-  </ul>
-  <p id="totalPrice">Totalt: 0 kr</p>
-  <button id="checkout">Beställ</button>
-    </section>
-
-
-     <section id="about">
+    <section id="about">
       <h2>Om Kaffeteria Chas</h2>
       <p>
         Vi är ett lokalt café som erbjuder ekologiskt kaffe och hembakade godsaker. Vår passion är att skapa en varm och välkomnande miljö för alla kaffeälskare.
@@ -75,9 +61,6 @@
   <footer>
     <p>&copy; 2025 Kaffeteria Chas</p>
   </footer>
-
-</body>
-</html>
-    
+<script src="script.js"></script>
 </body>
 </html>
