@@ -34,6 +34,7 @@ fetch("https://api.sampleapis.com/coffee/hot")
         : 0);
 
       const item = document.createElement("li");
+      item.className = "product-card";
       item.innerHTML = `
         <h3>${coffee.title}</h3>
         <img src="${coffee.image}" alt="${coffee.title}" width="150">
