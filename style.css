@@ -36,11 +36,70 @@ nav .nav-links {
   }
 
 #productList {
-    display: flex;
+    display: flex
+;
     flex-direction: row;
-    gap: 30px;
+    /* justify-content: center; */
+    gap: 20px;
+    /* flex-wrap: wrap; */
+    /* height: 400px; */
+    width: 500px;
 }
 
 .product-card {
-    background-color: #262B33;
+    border-radius: 30px;
+    padding: 20px;
+    background: linear-gradient(to bottom, #252A32, rgba(37, 42, 50, 0));
 }
+
+img {
+    width: 150px;
+    border-radius: 15px;
+}
+
+/* .buttonCard {
+    background-color: #D17842;
+} */
+
+.buttonCard {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background-color: #D17842;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Horisontell linje */
+  .buttonCard::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 4px;
+    background-color: white;
+    transform: translateY(-50%);
+    border-radius: 10px;
+  }
+  
+  /* Vertikal linje */
+  .buttonCard::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 4px;
+    height: 80%;
+    background-color: white;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    
+  }
+  
+  /* Hover-effekt */
+  .buttonCard:hover {
+    background-color: #555;
+  }
+  

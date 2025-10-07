@@ -20,11 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Fetch Coffee Menu
 fetch("https://api.sampleapis.com/coffee/hot")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    data.forEach(function (coffee) {
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(coffee => {
       const ingredients = Array.isArray(coffee.ingredients)
         ? coffee.ingredients.join(", ")
         : "Okänd";
@@ -33,21 +31,44 @@ fetch("https://api.sampleapis.com/coffee/hot")
         ? coffee.ingredients.length * 2
         : 0);
 
+      // Skapa li-element för kortet
       const item = document.createElement("li");
       item.className = "product-card";
-      item.innerHTML = `
-        <h3>${coffee.title}</h3>
-        <img src="${coffee.image}" alt="${coffee.title}" width="150">
-        <p>${coffee.description}</p>
-        <p><strong>Ingredienser:</strong> ${ingredients}</p>
-        <button onclick="addToCart('${coffee.title.replace(/'/g, "\\'")}', ${price})">
-          Lägg till i varukorg (${price} kr)
-        </button>
-      `;
+
+      // Bild
+      const imgEl = document.createElement("img");
+      imgEl.src = coffee.image;
+      imgEl.alt = coffee.title;
+      imgEl.width = 150;
+
+      // Titel
+      const titleEl = document.createElement("h3");
+      titleEl.textContent = coffee.title;
+
+      // Beskrivning (kortad till 100 tecken)
+      const descEl = document.createElement("p");
+      descEl.textContent = coffee.description.length > 25
+        ? coffee.description.slice(0, 25) + "..."
+        : coffee.description;
+
+      // Ingredienser
+      const ingEl = document.createElement("p");
+      ingEl.innerHTML = `<strong>Ingredienser:</strong> ${ingredients}`;
+
+      // Knapp med egen className
+      const buttonEl = document.createElement("button");
+      buttonEl.className = "buttonCard";
+      buttonEl.textContent = "+";
+      buttonEl.addEventListener("click", () => addToCart(coffee.title, price));
+
+      // Lägg till alla delar i li
+      item.append(imgEl, titleEl, descEl, ingEl, buttonEl);
+
+      // Lägg till i listan
       productList.appendChild(item);
     });
   })
-  .catch(function (error) {
+  .catch(error => {
     productList.innerHTML = "<li>Kunde inte hämta kaffemenyn.</li>";
     console.error("API error:", error);
   });
@@ -103,6 +124,7 @@ function clearCart() {
   updateTotal();
   saveCart();
 }
+
 
 // Feedback Form Validation
 // seprate file
