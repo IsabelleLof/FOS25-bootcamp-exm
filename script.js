@@ -104,16 +104,4 @@ function clearCart() {
 }
 
 // Feedback Form Validation
-function validateForm() {
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  if (!name || !email || !message) {
-    alert("Fyll i alla fält!");
-    return false;
-  }
-
-  alert("Tack för din feedback!");
-  return true;
-}
+// seprate file
