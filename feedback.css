@@ -1,0 +1,23 @@
+body {
+  font-family: Verdana, sans-serif;
+  background-color: #fff8f0;
+  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4f6b4f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+}

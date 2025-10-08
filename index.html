@@ -10,19 +10,16 @@
 
   <header>
     <div class="header-container">
-LOGO
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="#cart">Varukorg</a></li>
-        <li><a href="#menu">Meny</a></li>
-        <li><a href="feedback.html">feedback</a></li>
-        <li><a href="om-oss.html">Om oss</a></li>
-      </ul>
-    </nav>
+      <h1>Kaffeteria Chas</h1>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#cart">Varukorg</a></li>
+          <li><a href="#menu">Meny</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+        </ul>
+      </nav>
     </div>
-    
-    <h1>Find the best
-        coffee for you</h1>
   </header>
 
   <div class="input-container">
@@ -31,49 +28,25 @@ LOGO
   
 
   <main>
-     <div class="top-section">
-    <section id="cart">
-      <h2>Din varukorg</h2>
-      <ul id="cartItems"></ul>
-      <p id="totalPrice">Totalt: 0 kr</p>
-      <button onclick="clearCart()">Rensa varukorg</button>
-    </section>
-</div>
-    <section id="menu">
-      <ul id="productList"></ul>
-    </section>
-    
-    <!-- 
-    <section id="todo">
-      <h2>Bokningslista</h2>
-      <input type="text" id="taskInput" placeholder="Skriv en bokning">
-      <button onclick="addTask()">Lägg till</button>
-      <ul id="taskList"></ul>
-    </section>
-  
+    <div class="top-section">
+      <section id="cart" class="cart-section">
+        <h2>Din varukorg</h2>
+        <ul id="cartItems"></ul>
+        <p id="totalPrice">Totalt: 0 kr</p>
+        
+        <button class="clear-cart-btn" onclick="clearCart()" aria-label="Rensa varukorg">Rensa varukorg</button>
+        <button class="send-order-btn" onclick="sendOrder()">Skicka beställning</button>
+      </section>
 
-    
-  <section id="feedback">
-      <h2>Feedback</h2>
-      <form id="feedbackForm" onsubmit="return validateForm()">
-        <label for="name">Namn:</label>
-        <input type="text" id="name" required><br>
-
-        <label for="email">E-post:</label>
-        <input type="email" id="email" required><br>
-
-        <label for="message">Meddelande:</label>
-        <textarea id="message" required></textarea><br>
-
-        <button type="submit">Skicka</button>
-      </form>
-    </section>
-     -->
-
-     
+      <section id="menu" class="menu-section">
+        <h2>Vår Kaffemeny</h2>
+        <ul id="productList" class="product-list"></ul>
+        
+      </section>
+    </div>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p>&copy; 2025 Kaffeteria Chas</p>
   </footer>
 

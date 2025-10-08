@@ -1,3 +1,6 @@
+console.log("JavaScript is working!");
+
+
 // DOM Elements
 const productList = document.getElementById("productList");
 const cartItems = document.getElementById("cartItems");
@@ -23,48 +26,32 @@ fetch("https://api.sampleapis.com/coffee/hot")
   .then(response => response.json())
   .then(data => {
     data.forEach(coffee => {
-      const ingredients = Array.isArray(coffee.ingredients)
-        ? coffee.ingredients.join(", ")
-        : "Okänd";
+      // ✅ Skip items with missing image, title, or ingredients
+      if (
+        !coffee.title ||
+        coffee.title.toLowerCase() === "unknown" ||
+        !coffee.image ||
+        !Array.isArray(coffee.ingredients) ||
+        coffee.ingredients.length === 0
+      ) {
+        return; // Skip this item
+      }
 
-      const price = 30 + (Array.isArray(coffee.ingredients)
-        ? coffee.ingredients.length * 2
-        : 0);
+      const ingredients = coffee.ingredients.join(", ");
+      const price = 30 + coffee.ingredients.length * 2;
 
       // Skapa li-element för kortet
       const item = document.createElement("li");
       item.className = "product-card";
-
-      // Bild
-      const imgEl = document.createElement("img");
-      imgEl.src = coffee.image;
-      imgEl.alt = coffee.title;
-      imgEl.width = 150;
-
-      // Titel
-      const titleEl = document.createElement("h3");
-      titleEl.textContent = coffee.title;
-
-      // Beskrivning (kortad till 100 tecken)
-      const descEl = document.createElement("p");
-      descEl.textContent = coffee.description.length > 25
-        ? coffee.description.slice(0, 25) + "..."
-        : coffee.description;
-
-      // Ingredienser
-      const ingEl = document.createElement("p");
-      ingEl.innerHTML = `<strong>Ingredienser:</strong> ${ingredients}`;
-
-      // Knapp med egen className
-      const buttonEl = document.createElement("button");
-      buttonEl.className = "buttonCard";
-      buttonEl.textContent = "+";
-      buttonEl.addEventListener("click", () => addToCart(coffee.title, price));
-
-      // Lägg till alla delar i li
-      item.append(imgEl, titleEl, descEl, ingEl, buttonEl);
-
-      // Lägg till i listan
+      item.innerHTML = `
+        <h3>${coffee.title}</h3>
+        <img src="${coffee.image}" alt="${coffee.title}" width="150">
+        <p>${coffee.description}</p>
+        <p><strong>Ingredienser:</strong> ${ingredients}</p>
+        <button class="add-btn" onclick="addToCart('${coffee.title.replace(/'/g, "\\'")}', ${price}, this)">
+          Lägg till i varukorg (${price} kr)
+        </button>
+      `;
       productList.appendChild(item);
     });
   })
@@ -74,16 +61,26 @@ fetch("https://api.sampleapis.com/coffee/hot")
   });
 
 // Add Item to Cart
-function addToCart(name, price) {
+function addToCart(name, price, button) {
   cart.push({ name, price });
   renderCartItem(name, price);
   updateTotal();
   saveCart();
+
+  button.classList.add("added");
+  button.textContent = "Tillagd ✔";
+
+    setTimeout(() => {
+    button.classList.remove("added");
+    button.textContent = `Lägg till i varukorg (${price} kr)`;
+  }, 3000);
 }
+
 
 // Render Cart Item
 function renderCartItem(name, price) {
   const item = document.createElement("li");
+  item.className = "product-card";
   item.innerHTML = `
     ${name} – ${price} kr
     <button onclick="removeFromCart('${name.replace(/'/g, "\\'")}', ${price})">Ta bort</button>
@@ -125,6 +122,34 @@ function clearCart() {
   saveCart();
 }
 
+function sendOrder() {
+  if (cart.length === 0) {
+    alert("Varukorgen är tom. Lägg till produkter först.");
+    return;
+  }
+
+  const orderNumber = "ORD-" + Date.now(); // Unique timestamp-based ID
+  const order = {
+    orderNumber: orderNumber,
+    items: [...cart],
+    total: cart.reduce((sum, item) => sum + item.price, 0),
+    timestamp: new Date().toLocaleString()
+  };
+
+  // Save to localStorage
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  // Clear cart
+  cart = [];
+  cartItems.innerHTML = "";
+  updateTotal();
+  saveCart();
+
+  // Confirmation
+  alert(`Tack! Din beställning (${orderNumber}) har skickats.`);
+}
 
 // Feedback Form Validation
 // seprate file
