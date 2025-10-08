@@ -40,6 +40,7 @@ fetch("https://api.sampleapis.com/coffee/hot")
       const ingredients = coffee.ingredients.join(", ");
       const price = 30 + coffee.ingredients.length * 2;
 
+      // Skapa li-element för kortet
       const item = document.createElement("li");
       item.className = "product-card";
       item.innerHTML = `
