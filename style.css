@@ -18,7 +18,6 @@ nav.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
     color: white;
     padding: 0 20px;
 }
@@ -34,6 +33,41 @@ nav .nav-links {
     color: white;         /* Sätt önskad färg */
     text-decoration: none;
   }
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.input-container input {
+    width: 90%;        
+    max-width: 330px;  
+    padding: 15px 15px 15px 45px; /* plats för ikonen */
+    border-radius: 15px;
+    border: 1px solid #000000;
+    font-size: 1rem;
+    color: #52555A;
+    filter: drop-shadow(2px 2px 4px #000000);
+    line-height: 20px;
+
+    /* Bakgrund: färg + ikon */
+    background-color: #0C0F14; /* behåll bakgrundsfärg */
+    background-image: url('images/icon_input.png'); /* ikonen */
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-size: 20px 20px;
+}
+
+
+
+#cart {
+    color: #FFFF;
+}
+
+#menu {
+    color: #FFFF;
+}
 
 #productList {
     display: grid;
@@ -99,7 +133,7 @@ nav .nav-links {
     background-color: #555;
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 450px) {
     #productList {
         grid-template-columns: repeat(2, 1fr);
     }
