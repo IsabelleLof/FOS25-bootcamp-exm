@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaffeteria Chas Globen</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+  <header>
+    <div class="header-container">
+      <h1>Kaffeteria Chas</h1>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#cart">Varukorg</a></li>
+          <li><a href="#menu">Meny</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="input-container">
+    <input type="text" placeholder="Find Your Coffee...">
+  </div>
+  
+
+  <main>
+    <div class="top-section">
+      <section id="cart" class="cart-section">
+        <h2>Din varukorg</h2>
+        <ul id="cartItems"></ul>
+        <p id="totalPrice">Totalt: 0 kr</p>
+        
+        <button class="clear-cart-btn" onclick="clearCart()" aria-label="Rensa varukorg">Rensa varukorg</button>
+        <button class="send-order-btn" onclick="sendOrder()">Skicka beställning</button>
+      </section>
+
+      <section id="menu" class="menu-section">
+        <h2>Vår Kaffemeny</h2>
+        <ul id="productList" class="product-list"></ul>
+        
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Kaffeteria Chas</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

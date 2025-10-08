@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback – KaffeChas</title>
+  <link rel="stylesheet" href="feedback.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Meny</a></li>
+      <li><a href="cart.html">Varukorg</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <h1>Ge oss din feedback</h1>
+
+  <form id="feedbackForm" onsubmit="saveFeedback(); return false;">
+    <label for="name">Namn:</label>
+    <input type="text" id="name" required />
+
+    <label for="message">Meddelande:</label>
+    <textarea id="message" required></textarea>
+
+    <button type="submit">Skicka</button>
+  </form>
+
+  <button onclick="window.location.href='index.html'">Tillbaka till meny</button>
+
+  <script src="feedback.js"></script>
+</body>
+</html>
