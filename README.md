@@ -34,10 +34,10 @@ Projektet är versionerat med Git och publicerat på GitHub. Minst 5 commits vis
 - Tillgänglighetsförbättringar
 
 ## 🚀 Så kör du projektet
-1. Klona repot: `git clone https://github.com/ditt-användarnamn/kaffekoppen`
+1. Klona repot: `git clone https://github.com/IsabelleLof/FOS25-bootcamp-exm.git`
 2. Öppna `index.html` i webbläsaren
 3. Testa varukorg, meny och formulär
 
 ## 👥 Team
 - Devinder Singh – Varukorg, API, tillgänglighet
-- Isabelle – Formulär, layout, reflektion
+- Isabelle Löfgren – Formulär, layout, reflektion

@@ -10,7 +10,7 @@
 
   <header>
     <h1>Kaffeteria Chas</h1>
-    <nav>
+    <nav class="navbar">
       <ul>
         <li><a href="#cart">Varukorg</a></li>
         <li><a href="#menu">Meny</a></li>
@@ -26,14 +26,15 @@
       <h2>Din varukorg</h2>
       <ul id="cartItems"></ul>
       <p id="totalPrice">Totalt: 0 kr</p>
-      <button onclick="clearCart()">Rensa varukorg</button>
+      <button onclick="clearCart() aria-label="rensa varukorg">Rensa varukorg</button>
     </section>
 
     <section id="menu">
       <h2>Vår Kaffemeny</h2>
-      <ul id="productList"></ul>
-      </div>
+      <ul id="productList" class="product-list" ></ul>
+      
     </section>
+    </div>
     
     <!-- 
     <section id="todo">

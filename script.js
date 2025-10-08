@@ -62,6 +62,7 @@ function addToCart(name, price) {
 // Render Cart Item
 function renderCartItem(name, price) {
   const item = document.createElement("li");
+  li.className = "product-card";
   item.innerHTML = `
     ${name} – ${price} kr
     <button onclick="removeFromCart('${name.replace(/'/g, "\\'")}', ${price})">Ta bort</button>
