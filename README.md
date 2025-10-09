@@ -40,4 +40,6 @@ Projektet är versionerat med Git och publicerat på GitHub. Minst 5 commits vis
 
 ## 👥 Team
 - Devinder Singh – Varukorg, API, tillgänglighet
-- Isabelle Löfgren – Formulär, layout, reflektion
+
+
+- //Isabelle Löfgren – Formulär, layout, reflektion
