@@ -22,10 +22,10 @@
     </div>
   </header>
 
+  <!-- 🔍 Sökfält -->
   <div class="input-container">
-    <input type="text" placeholder="Find Your Coffee...">
+    <input id="searchInput" type="search" placeholder="Sök kaffe, ingrediens eller beskrivning..." />
   </div>
-  
 
   <main>
     <div class="top-section">
@@ -33,15 +33,13 @@
         <h2>Din varukorg</h2>
         <ul id="cartItems"></ul>
         <p id="totalPrice">Totalt: 0 kr</p>
-        
-        <button class="clear-cart-btn" onclick="clearCart()" aria-label="Rensa varukorg">Rensa varukorg</button>
+        <button class="clear-cart-btn" onclick="clearCart()">Rensa varukorg</button>
         <button class="send-order-btn" onclick="sendOrder()">Skicka beställning</button>
       </section>
 
       <section id="menu" class="menu-section">
         <h2>Vår Kaffemeny</h2>
         <ul id="productList" class="product-list"></ul>
-        
       </section>
     </div>
   </main>
