@@ -28,7 +28,7 @@ async function loadCoffeeMenu() {
     data.forEach(coffee => {
       if (
         !coffee.title ||
-        coffee.title.toLowerCase() === "unknown" ||
+        coffee.title.toLowerCase() === "unknown" || 
         !coffee.image ||
         !Array.isArray(coffee.ingredients) ||
         coffee.ingredients.length === 0
